@@ -181,6 +181,14 @@
     margin-bottom:12px;
     min-height:1em;
   }
+  .locate-status.warning{ color:#a63b2b; font-weight:600; }
+
+  .search-hint{
+    font-family:var(--font-mono);
+    font-size:0.68rem;
+    color:#9a927a;
+    margin:-8px 0 12px;
+  }
 
   .filter-row{
     display:flex;
@@ -229,6 +237,7 @@
   @media (max-width:900px){
     .layout{ grid-template-columns:1fr; }
     .map-pane{ order:-1; height:320px; margin-bottom:20px; position:static; }
+    .map-pane.collapsed{ height:auto; }
   }
 
   .list-pane{
@@ -337,8 +346,29 @@
     border:3px solid var(--canopy-deep);
     border-radius:4px;
     overflow:hidden;
+    transition:height 0.25s ease;
   }
-  #map{ height:100%; width:100%; filter: sepia(6%) saturate(90%); }
+  .map-pane.collapsed{
+    height:auto;
+    min-height:0;
+  }
+  .map-pane.collapsed #map{ display:none; }
+  .map-toggle{
+    display:block;
+    width:100%;
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    padding:10px 14px;
+    background:var(--canopy-deep);
+    color:var(--white);
+    border:none;
+    cursor:pointer;
+    text-align:left;
+  }
+  .map-toggle:hover{ background:var(--canopy); }
+  #map{ height:calc(100% - 38px); width:100%; filter: sepia(6%) saturate(90%); }
   .leaflet-routing-container{ display:none !important; }
 
   .venue-flag{
@@ -400,6 +430,7 @@
     <input type="text" class="search-input" id="searchInput" placeholder="Search parking, food, hotels, transport…" />
     <button class="locate-btn" id="locateBtn">📍 Pin my location</button>
   </div>
+  <div class="search-hint">Search only looks through the listings below — it doesn't search the map itself.</div>
   <div class="locate-status" id="locateStatus"></div>
   <div class="filter-row" id="filterRow">
     <span class="filter-label">Filter</span>
@@ -411,7 +442,8 @@
     <div class="result-count" id="resultCount"></div>
     <div id="listContainer"></div>
   </div>
-  <div class="map-pane">
+  <div class="map-pane" id="mapPane">
+    <button class="map-toggle" id="mapToggle">▾ Hide map</button>
     <div id="map"></div>
   </div>
 </div>
@@ -530,9 +562,14 @@ let routingControl = null;
 const locateBtn = document.getElementById('locateBtn');
 const locateStatus = document.getElementById('locateStatus');
 
+function setStatus(text, isWarning){
+  locateStatus.textContent = text;
+  locateStatus.classList.toggle('warning', !!isWarning);
+}
+
 locateBtn.addEventListener('click', () => {
   if(!navigator.geolocation){
-    locateStatus.textContent = "Location isn't supported on this browser.";
+    setStatus("Location isn't supported on this browser.", true);
     return;
   }
   locateBtn.textContent = "📍 Locating…";
@@ -551,18 +588,18 @@ locateBtn.addEventListener('click', () => {
       map.flyTo([userLocation.lat, userLocation.lng], 14, {duration:0.8});
       locateBtn.textContent = "📍 Location pinned";
       locateBtn.classList.add('active');
-      locateStatus.textContent = "Tap \"Get directions\" on any listing to route from here.";
+      setStatus('Tap "Get directions" on any listing to route from here.', false);
     },
     () => {
       locateBtn.textContent = "📍 Pin my location";
-      locateStatus.textContent = "Couldn't get your location — check browser permissions and try again.";
+      setStatus("Couldn't get your location — check browser permissions and try again.", true);
     }
   );
 });
 
 function routeTo(listing){
   if(!userLocation){
-    locateStatus.textContent = "Pin your location first, then tap \"Get directions\" again.";
+    setStatus('Pin your location first, then tap "Get directions" again.', true);
     locateBtn.classList.add('active');
     window.scrollTo({top:0, behavior:'smooth'});
     return;
@@ -580,8 +617,17 @@ function routeTo(listing){
     fitSelectedRoutes: true,
     show: false
   }).addTo(map);
-  locateStatus.textContent = `Routing to ${listing.name}…`;
+  setStatus(`Routing to ${listing.name}…`, false);
 }
+
+/* ===== MAP COLLAPSE TOGGLE ===== */
+const mapPane = document.getElementById('mapPane');
+const mapToggle = document.getElementById('mapToggle');
+mapToggle.addEventListener('click', () => {
+  const collapsed = mapPane.classList.toggle('collapsed');
+  mapToggle.textContent = collapsed ? '▸ Show map' : '▾ Hide map';
+  if(!collapsed){ setTimeout(() => map.invalidateSize(), 260); }
+});
 
 /* ===== RENDER LIST ===== */
 const listContainer = document.getElementById('listContainer');
@@ -634,6 +680,11 @@ function render(){
     listContainer.appendChild(div);
   });
 }
+
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  searchTerm = e.target.value;
+  render();
+});
 
 render();
 </script>
