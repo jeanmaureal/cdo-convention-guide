@@ -453,14 +453,7 @@
 </footer>
 
 <script>
-/* ===== CONVENTION VENUE ===== */
-const VENUE = {
-  name: "Aquilino Pimentel International Convention Center",
-  lat: 8.420197,
-  lng: 124.642693
-};
-
-/* ===== CATEGORY COLORS ===== */
+/* ===== CATEGORY COLORS (static styling, not data) ===== */
 const CATEGORY_COLORS = {
   "Parking": {bg:"#e4ddc4", fg:"#6b5636"},
   "Accommodation": {bg:"#d7e2d3", fg:"#2f4a34"},
@@ -470,34 +463,14 @@ const CATEGORY_COLORS = {
   "Essentials": {bg:"#e6e0f0", fg:"#4b3a68"}
 };
 
-/* ===== SAMPLE DATA (near the venue) ===== */
-const listings = [
-  {name:"APICC Main Parking Lot", category:"Parking", lat:8.4198, lng:124.6432, address:"Aquilino Pimentel Int'l Convention Center grounds", hours:"5am–9pm, convention days", desc:"Primary on-site parking for delegates arriving by car or van.", contact:"—"},
-  {name:"Overflow Parking – Capitol Grounds", category:"Parking", lat:8.4841, lng:124.6465, address:"Provincial Capitol, Cagayan de Oro", hours:"5am–9pm, convention days", desc:"Secondary parking area with shuttle pickup to the venue.", contact:"—"},
-  {name:"Seda Centrio Hotel", category:"Accommodation", lat:8.4785, lng:124.6469, address:"Corrales Ave cor. Vamenta Blvd", hours:"24 hours", desc:"Mid-range hotel roughly 15 minutes from the convention venue.", contact:"(088) 880-1000"},
-  {name:"Mallberry Suites Business Hotel", category:"Accommodation", lat:8.4762, lng:124.6486, address:"Claro M. Recto Ave, Cagayan de Oro", hours:"24 hours", desc:"Budget-friendly suites popular with visiting delegates.", contact:"(088) 856-1358"},
-  {name:"Dynasty Court Hotel", category:"Accommodation", lat:8.4809, lng:124.6459, address:"Yacapin-Bonifacio St", hours:"24 hours", desc:"Centrally located hotel with easy access to jeepney routes.", contact:"(088) 857-4333"},
-  {name:"Ate Rica's Lechon", category:"Food & Dining", lat:8.4790, lng:124.6421, address:"Velez St, Cagayan de Oro", hours:"9am–8pm daily", desc:"Local favorite for a quick, affordable roast pork lunch.", contact:"(088) 890-1234"},
-  {name:"Persimmon Coffee Roasters", category:"Food & Dining", lat:8.4744, lng:124.6355, address:"Kauswagan, Cagayan de Oro", hours:"8am–8pm daily", desc:"Coffee and light meals, a quiet stop between sessions.", contact:"(088) 888-9999"},
-  {name:"CDO Public Market", category:"Food & Dining", lat:8.4834, lng:124.6438, address:"Divisoria, Cagayan de Oro", hours:"5am–7pm daily", desc:"Wet and dry market for fresh produce and inexpensive eats.", contact:"—"},
-  {name:"Robinsons Place CDO", category:"Food & Dining", lat:8.4756, lng:124.6478, address:"Kauswagan Highway", hours:"10am–9pm daily", desc:"Mall food court and supermarket, good for stocking up.", contact:"(088) 999-0000"},
-  {name:"Agora Bus & Jeepney Terminal", category:"Transportation", lat:8.4869, lng:124.6551, address:"Lapasan, Cagayan de Oro", hours:"4am–10pm daily", desc:"Main terminal for jeepneys and buses connecting to the city center.", contact:"—"},
-  {name:"Grab Pickup Point – Venue Gate", category:"Transportation", lat:8.4203, lng:124.6435, address:"APICC Main Gate", hours:"During convention hours", desc:"Designated ride-hailing pickup and drop-off zone.", contact:"—"},
-  {name:"Cagayan de Oro Airport (Laguindingan)", category:"Transportation", lat:8.6119, lng:124.4553, address:"Laguindingan, Misamis Oriental", hours:"24 hours", desc:"Nearest airport, about 1 hour from the venue by van or taxi.", contact:"—"},
-  {name:"Northern Mindanao Medical Center", category:"Health & First Aid", lat:8.4756, lng:124.6392, address:"Cagayan de Oro–Iligan Rd", hours:"24 hours", desc:"Regional hospital with 24-hour emergency services.", contact:"(088) 678-9012"},
-  {name:"On-Site First Aid Station", category:"Health & First Aid", lat:8.4202, lng:124.6428, address:"Aquilino Pimentel Int'l Convention Center", hours:"Convention hours", desc:"Volunteer-staffed first aid post inside the venue grounds.", contact:"—"},
-  {name:"CDO Pharmacy Plus", category:"Health & First Aid", lat:8.4801, lng:124.6446, address:"Chavez St, Cagayan de Oro", hours:"7am–11pm daily", desc:"Neighborhood pharmacy stocked with common medications.", contact:"(088) 666-7777"},
-  {name:"Lost & Found / Info Booth", category:"Essentials", lat:8.4199, lng:124.6430, address:"Aquilino Pimentel Int'l Convention Center, near Main Gate", hours:"Convention hours", desc:"Central point for lost items, program questions, and general help.", contact:"—"},
-  {name:"ATM Cluster – Venue Entrance", category:"Essentials", lat:8.4200, lng:124.6440, address:"APICC Main Entrance", hours:"24 hours", desc:"Several bank ATMs available near the entrance for cash needs.", contact:"—"},
-  {name:"Water Refilling & Rest Area", category:"Essentials", lat:8.4205, lng:124.6425, address:"Aquilino Pimentel Int'l Convention Center grounds", hours:"Convention hours", desc:"Free drinking water station and shaded seating for breaks.", contact:"—"}
-];
-
-const categories = [...new Set(listings.map(l => l.category))];
+let VENUE = null;
+let listings = [];
+let categories = [];
 let activeCategory = "All";
 let searchTerm = "";
 let markers = {};
+let map = null;
 
-/* ===== BUILD FILTER CHIPS ===== */
 const filterRow = document.getElementById('filterRow');
 function makeChip(label){
   const chip = document.createElement('button');
@@ -511,48 +484,59 @@ function makeChip(label){
   };
   return chip;
 }
-filterRow.appendChild(makeChip("All"));
-categories.forEach(c => filterRow.appendChild(makeChip(c)));
-
-/* ===== MAP SETUP ===== */
-const map = L.map('map', {scrollWheelZoom:false}).setView([VENUE.lat, VENUE.lng], 13);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors',
-  maxZoom: 18
-}).addTo(map);
-
-const venueFlag = L.control({position:'topleft'});
-venueFlag.onAdd = function(){
-  const div = L.DomUtil.create('div', 'venue-flag');
-  div.innerHTML = `<b>📍 Venue</b>${VENUE.name}`;
-  return div;
-};
-venueFlag.addTo(map);
-
-L.marker([VENUE.lat, VENUE.lng], {
-  icon: L.divIcon({
-    className: 'venue-pin',
-    html: '<div style="width:22px;height:22px;border-radius:50% 50% 50% 0;background:#b98a3d;border:3px solid #fffdf6;transform:rotate(-45deg);box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>',
-    iconSize: [22,22],
-    iconAnchor: [11,22]
-  })
-}).addTo(map).bindPopup(`<div class="popup-cat">Convention Venue</div><div class="popup-title">${VENUE.name}</div>`);
 
 function colorFor(cat){
   return CATEGORY_COLORS[cat] ? CATEGORY_COLORS[cat].fg : "#2f4a34";
 }
 
-listings.forEach((l) => {
-  const marker = L.circleMarker([l.lat, l.lng], {
-    radius: 8,
-    fillColor: colorFor(l.category),
-    color: "#22301f",
-    weight: 1.5,
-    fillOpacity: 0.9
+async function loadData(){
+  const res = await fetch('listings.json');
+  if(!res.ok){ throw new Error('Could not load listings.json (status ' + res.status + ')'); }
+  const data = await res.json();
+  VENUE = data.venue;
+  listings = data.listings;
+  categories = [...new Set(listings.map(l => l.category))];
+}
+
+function initMap(){
+  filterRow.appendChild(makeChip("All"));
+  categories.forEach(c => filterRow.appendChild(makeChip(c)));
+
+  map = L.map('map', {scrollWheelZoom:false}).setView([VENUE.lat, VENUE.lng], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 18
   }).addTo(map);
-  marker.bindPopup(`<div class="popup-cat">${l.category}</div><div class="popup-title">${l.name}</div><div style="font-size:0.8rem;color:#4a4638">${l.address}</div>`);
-  markers[l.name] = marker;
-});
+
+  const venueFlag = L.control({position:'topleft'});
+  venueFlag.onAdd = function(){
+    const div = L.DomUtil.create('div', 'venue-flag');
+    div.innerHTML = `<b>📍 Venue</b>${VENUE.name}`;
+    return div;
+  };
+  venueFlag.addTo(map);
+
+  L.marker([VENUE.lat, VENUE.lng], {
+    icon: L.divIcon({
+      className: 'venue-pin',
+      html: '<div style="width:22px;height:22px;border-radius:50% 50% 50% 0;background:#b98a3d;border:3px solid #fffdf6;transform:rotate(-45deg);box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>',
+      iconSize: [22,22],
+      iconAnchor: [11,22]
+    })
+  }).addTo(map).bindPopup(`<div class="popup-cat">Convention Venue</div><div class="popup-title">${VENUE.name}</div>`);
+
+  listings.forEach((l) => {
+    const marker = L.circleMarker([l.lat, l.lng], {
+      radius: 8,
+      fillColor: colorFor(l.category),
+      color: "#22301f",
+      weight: 1.5,
+      fillOpacity: 0.9
+    }).addTo(map);
+    marker.bindPopup(`<div class="popup-cat">${l.category}</div><div class="popup-title">${l.name}</div><div style="font-size:0.8rem;color:#4a4638">${l.address}</div>`);
+    markers[l.name] = marker;
+  });
+}
 
 /* ===== USER LOCATION + ROUTING ===== */
 let userLocation = null;
@@ -686,7 +670,19 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
   render();
 });
 
-render();
+async function init(){
+  try{
+    listContainer.innerHTML = `<div class="empty-state">Loading listings…</div>`;
+    await loadData();
+    initMap();
+    render();
+  }catch(err){
+    listContainer.innerHTML = `<div class="empty-state">Couldn't load listings.json.<br>Check that the file sits next to index.html in the repo.</div>`;
+    console.error(err);
+  }
+}
+
+init();
 </script>
 
 </body>
