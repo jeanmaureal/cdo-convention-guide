@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kalipay sa Walay Kataposan — Convention Visitor Guide</title>
+<title>Kalipay sa Walay Kataposan — Convention Delegate Guide</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
@@ -87,12 +87,20 @@
   .hero-title{
     font-family:var(--font-display);
     font-weight:800;
-    font-size:clamp(2.2rem, 4.2vw, 3.4rem);
-    line-height:1.08;
+    font-size:clamp(1.7rem, 3.6vw, 3.4rem);
+    line-height:1.1;
     color:#ffffff;
     margin:0 0 8px;
-    max-width:14ch;
+    max-width:none;
+    white-space:nowrap;
     text-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  @media (max-width:760px){
+    .hero-title{
+      white-space:normal;
+      font-size:clamp(1.6rem, 7vw, 2.4rem);
+      max-width:16ch;
+    }
   }
   .hero-sub{
     font-family:var(--font-mono);
@@ -473,7 +481,7 @@
     <path d="M330 400v-16c10-9 22-12 33-8 4-11 15-18 26-16 4-9 14-14 23-11 7-8 18-10 27-5 9-6 20-4 27 4 9-3 19 0 25 7 8-4 17-2 22 4H330z"/>
   </svg>
   <div class="hero-inner">
-    <div class="eyebrow">Convention Visitor Guide</div>
+    <div class="eyebrow">Convention Delegate Guide</div>
     <h1 class="hero-title">Kalipay sa Walay Kataposan</h1>
     <div class="hero-sub">2026 Kombensiyon sa mga Saksi ni Jehova · Cebuano</div>
     <div class="hero-facts">
