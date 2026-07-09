@@ -22,7 +22,7 @@
       "lng": 124.645078,
       "address": "Convention Center Access Rd, Brgy. Pualas, Baungon, Bukidnon 8707",
       "hours": "24 hours",
-      "desc": "Mountain resort directly along the venue access road. Reviewers note it's pricey and taxis charge roughly double (~₱500) for the ride. (Closest option to venue from the venue.)",
+      "desc": "Mountain resort directly along the venue access road. Reviewers note it's pricey and taxis charge roughly double (~₱500) for the ride. (Closest option to venue)",
       "contact": "0908 811 7060"
     },
     {
@@ -32,7 +32,7 @@
       "lng": 124.650288,
       "address": "C.M. Recto Ave corner Corrales Ave, Cagayan de Oro",
       "hours": "24 hours",
-      "desc": "Mid-range business hotel in the downtown core. (~10-15 km / 30-45 min drive from the venue.)",
+      "desc": "Mid-range business hotel in the downtown core. (~10-15 km / 30-45 min drive)",
       "contact": "(088) 323-8888"
     },
     {
@@ -42,7 +42,7 @@
       "lng": 124.644448,
       "address": "Near Museo de Oro, Cagayan de Oro",
       "hours": "24 hours",
-      "desc": "Hotel with restaurant, bar, and free private parking. (~10-15 km / 30-45 min drive from the venue.)",
+      "desc": "Hotel with restaurant, bar, and free private parking. (~10-15 km / 30-45 min drive)",
       "contact": "0917 158 0400"
     },
     {
@@ -52,7 +52,7 @@
       "lng": 124.64502,
       "address": "Near Centrio Mall, Cagayan de Oro",
       "hours": "24 hours",
-      "desc": "Hotel with restaurant and free amenities, short walk to Centrio Mall. (~10-15 km / 30-45 min drive from the venue.)",
+      "desc": "Hotel with restaurant and free amenities, short walk to Centrio Mall. (~10-15 km / 30-45 min drive)",
       "contact": "(088) 880-2908"
     },
     {
@@ -62,7 +62,7 @@
       "lng": 124.627744,
       "address": "Cagayan de Oro City (public hospital)",
       "hours": "24 hours",
-      "desc": "City-run public general hospital. (~10-15 km from venue from the venue.)",
+      "desc": "City-run public general hospital. (~10-15 km from venue)",
       "contact": "(088) 880-1070"
     },
     {
@@ -72,7 +72,7 @@
       "lng": 124.647191,
       "address": "Cagayan de Oro City",
       "hours": "24 hours",
-      "desc": "Private Level II hospital, 112-bed capacity. (~10-15 km from venue from the venue.)",
+      "desc": "Private Level II hospital, 112-bed capacity. (~10-15 km from venue)",
       "contact": "—"
     },
     {
@@ -82,7 +82,7 @@
       "lng": 124.667799,
       "address": "Barangay Indahag, Cagayan de Oro City",
       "hours": "Business hours, Mon-Fri (typical for barangay health centers)",
-      "desc": "Local government barangay health center serving Indahag, the venue's own barangay. (Closest barangay clinic to venue from the venue.)",
+      "desc": "Local government barangay health center serving Indahag, the venue's own barangay. (Closest barangay clinic to venue)",
       "contact": "—"
     },
     {
@@ -92,7 +92,7 @@
       "lng": 124.704182,
       "address": "Barangay Cugman, Cagayan de Oro City",
       "hours": "Business hours, Mon-Fri (typical)",
-      "desc": "Barangay health center in Cugman, on the way toward Indahag/venue. (Along the route from downtown to venue from the venue.)",
+      "desc": "Barangay health center in Cugman, on the way toward Indahag/venue. (Along the route from downtown to venue)",
       "contact": "0997 244 9865"
     },
     {
@@ -102,7 +102,7 @@
       "lng": 124.458642,
       "address": "Laguindingan, Misamis Oriental",
       "hours": "24 hours",
-      "desc": "Nearest airport serving Cagayan de Oro; primary arrival point for delegates flying in. (~45 km / 1 to 1.5 hr drive from venue from the venue.)",
+      "desc": "Nearest airport serving Cagayan de Oro; primary arrival point for delegates flying in. (~45 km / 1 to 1.5 hr drive from venue)",
       "contact": "(088) 555-1881"
     },
     {
@@ -112,7 +112,7 @@
       "lng": 124.657728,
       "address": "Lapasan, Cagayan de Oro City",
       "hours": "Early morning to evening (typical)",
-      "desc": "Main city terminal. Note: no direct jeepney or bus route currently serves the venue itself — plan for taxi or ride-hailing for the final leg. (~10-15 km from venue from the venue.)",
+      "desc": "Main city terminal. Note: no direct jeepney or bus route currently serves the venue itself — plan for taxi or ride-hailing for the final leg. (~10-15 km from venue)",
       "contact": "—"
     },
     {
@@ -122,7 +122,7 @@
       "lng": "—",
       "address": "Various points, downtown Cagayan de Oro",
       "hours": "24 hours (availability varies)",
-      "desc": "Public transport does not reach the elevated venue directly; taxis and ride-hailing apps are the practical option for the final approach. (Starting point for ~30-45 min ride to venue from the venue.)",
+      "desc": "Public transport does not reach the elevated venue directly; taxis and ride-hailing apps are the practical option for the final approach. Expect a 30–45 minute taxi or ride-hailing trip from downtown to the venue.",
       "contact": "—"
     },
     {
@@ -132,7 +132,7 @@
       "lng": 124.621497,
       "address": "Upper Canitoan, Masterson Ave, Upper Canitoan, Cagayan De Oro City, 9000 Misamis Oriental",
       "hours": "24 hours except Sunday",
-      "desc": "Private Hospital (5.9 km from venue (10 min. drive via S diversion rd.) from the venue.)",
+      "desc": "Private Hospital (5.9 km from venue (10 min. drive via S diversion rd.))",
       "contact": "0917 183 7001"
     },
     {
