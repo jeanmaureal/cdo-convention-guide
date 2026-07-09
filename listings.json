@@ -1,27 +1,169 @@
 {
   "venue": {
-    "name": "Aquilino Pimentel International Convention Center",
+    "name": "Aquilino Q. Pimentel Jr. International Convention Center (Venue)",
     "lat": 8.420197,
     "lng": 124.642693
   },
   "listings": [
-    {"name":"APICC Main Parking Lot", "category":"Parking", "lat":8.4198, "lng":124.6432, "address":"Aquilino Pimentel Int'l Convention Center grounds", "hours":"5am–9pm, convention days", "desc":"Primary on-site parking for delegates arriving by car or van.", "contact":"—"},
-    {"name":"Overflow Parking – Capitol Grounds", "category":"Parking", "lat":8.4841, "lng":124.6465, "address":"Provincial Capitol, Cagayan de Oro", "hours":"5am–9pm, convention days", "desc":"Secondary parking area with shuttle pickup to the venue.", "contact":"—"},
-    {"name":"Seda Centrio Hotel", "category":"Accommodation", "lat":8.4785, "lng":124.6469, "address":"Corrales Ave cor. Vamenta Blvd", "hours":"24 hours", "desc":"Mid-range hotel roughly 15 minutes from the convention venue.", "contact":"(088) 880-1000"},
-    {"name":"Mallberry Suites Business Hotel", "category":"Accommodation", "lat":8.4762, "lng":124.6486, "address":"Claro M. Recto Ave, Cagayan de Oro", "hours":"24 hours", "desc":"Budget-friendly suites popular with visiting delegates.", "contact":"(088) 856-1358"},
-    {"name":"Dynasty Court Hotel", "category":"Accommodation", "lat":8.4809, "lng":124.6459, "address":"Yacapin-Bonifacio St", "hours":"24 hours", "desc":"Centrally located hotel with easy access to jeepney routes.", "contact":"(088) 857-4333"},
-    {"name":"Ate Rica's Lechon", "category":"Food & Dining", "lat":8.4790, "lng":124.6421, "address":"Velez St, Cagayan de Oro", "hours":"9am–8pm daily", "desc":"Local favorite for a quick, affordable roast pork lunch.", "contact":"(088) 890-1234"},
-    {"name":"Persimmon Coffee Roasters", "category":"Food & Dining", "lat":8.4744, "lng":124.6355, "address":"Kauswagan, Cagayan de Oro", "hours":"8am–8pm daily", "desc":"Coffee and light meals, a quiet stop between sessions.", "contact":"(088) 888-9999"},
-    {"name":"CDO Public Market", "category":"Food & Dining", "lat":8.4834, "lng":124.6438, "address":"Divisoria, Cagayan de Oro", "hours":"5am–7pm daily", "desc":"Wet and dry market for fresh produce and inexpensive eats.", "contact":"—"},
-    {"name":"Robinsons Place CDO", "category":"Food & Dining", "lat":8.4756, "lng":124.6478, "address":"Kauswagan Highway", "hours":"10am–9pm daily", "desc":"Mall food court and supermarket, good for stocking up.", "contact":"(088) 999-0000"},
-    {"name":"Agora Bus & Jeepney Terminal", "category":"Transportation", "lat":8.4869, "lng":124.6551, "address":"Lapasan, Cagayan de Oro", "hours":"4am–10pm daily", "desc":"Main terminal for jeepneys and buses connecting to the city center.", "contact":"—"},
-    {"name":"Grab Pickup Point – Venue Gate", "category":"Transportation", "lat":8.4203, "lng":124.6435, "address":"APICC Main Gate", "hours":"During convention hours", "desc":"Designated ride-hailing pickup and drop-off zone.", "contact":"—"},
-    {"name":"Cagayan de Oro Airport (Laguindingan)", "category":"Transportation", "lat":8.6119, "lng":124.4553, "address":"Laguindingan, Misamis Oriental", "hours":"24 hours", "desc":"Nearest airport, about 1 hour from the venue by van or taxi.", "contact":"—"},
-    {"name":"Northern Mindanao Medical Center", "category":"Health & First Aid", "lat":8.4756, "lng":124.6392, "address":"Cagayan de Oro–Iligan Rd", "hours":"24 hours", "desc":"Regional hospital with 24-hour emergency services.", "contact":"(088) 678-9012"},
-    {"name":"On-Site First Aid Station", "category":"Health & First Aid", "lat":8.4202, "lng":124.6428, "address":"Aquilino Pimentel Int'l Convention Center", "hours":"Convention hours", "desc":"Volunteer-staffed first aid post inside the venue grounds.", "contact":"—"},
-    {"name":"CDO Pharmacy Plus", "category":"Health & First Aid", "lat":8.4801, "lng":124.6446, "address":"Chavez St, Cagayan de Oro", "hours":"7am–11pm daily", "desc":"Neighborhood pharmacy stocked with common medications.", "contact":"(088) 666-7777"},
-    {"name":"Lost & Found / Info Booth", "category":"Essentials", "lat":8.4199, "lng":124.6430, "address":"Aquilino Pimentel Int'l Convention Center, near Main Gate", "hours":"Convention hours", "desc":"Central point for lost items, program questions, and general help.", "contact":"—"},
-    {"name":"ATM Cluster – Venue Entrance", "category":"Essentials", "lat":8.4200, "lng":124.6440, "address":"APICC Main Entrance", "hours":"24 hours", "desc":"Several bank ATMs available near the entrance for cash needs.", "contact":"—"},
-    {"name":"Water Refilling & Rest Area", "category":"Essentials", "lat":8.4205, "lng":124.6425, "address":"Aquilino Pimentel Int'l Convention Center grounds", "hours":"Convention hours", "desc":"Free drinking water station and shaded seating for breaks.", "contact":"—"}
+    {
+      "name": "APICC On-Site Parking (surface lot)",
+      "category": "Parking",
+      "lat": 8.419948,
+      "lng": 124.642953,
+      "address": "Aquilino Q. Pimentel Jr. Int'l Convention Center grounds",
+      "hours": "Convention hours",
+      "desc": "Existing surface parking area adjacent to the main building.",
+      "contact": "—"
+    },
+    {
+      "name": "Ultra Winds Mountain Resort (nearest lodging to venue)",
+      "category": "Accommodation",
+      "lat": 8.416134,
+      "lng": 124.645078,
+      "address": "Convention Center Access Rd, Brgy. Pualas, Baungon, Bukidnon 8707",
+      "hours": "24 hours",
+      "desc": "Mountain resort directly along the venue access road. Reviewers note it's pricey and taxis charge roughly double (~₱500) for the ride. (Closest option to venue from the venue.)",
+      "contact": "0908 811 7060"
+    },
+    {
+      "name": "Seda Centrio Hotel",
+      "category": "Accommodation",
+      "lat": 8.484648,
+      "lng": 124.650288,
+      "address": "C.M. Recto Ave corner Corrales Ave, Cagayan de Oro",
+      "hours": "24 hours",
+      "desc": "Mid-range business hotel in the downtown core. (~10-15 km / 30-45 min drive from the venue.)",
+      "contact": "(088) 323-8888"
+    },
+    {
+      "name": "Hamersons Hotel CDO",
+      "category": "Accommodation",
+      "lat": 8.47448,
+      "lng": 124.644448,
+      "address": "Near Museo de Oro, Cagayan de Oro",
+      "hours": "24 hours",
+      "desc": "Hotel with restaurant, bar, and free private parking. (~10-15 km / 30-45 min drive from the venue.)",
+      "contact": "0917 158 0400"
+    },
+    {
+      "name": "Demiren Hotel",
+      "category": "Accommodation",
+      "lat": 8.48304,
+      "lng": 124.64502,
+      "address": "Near Centrio Mall, Cagayan de Oro",
+      "hours": "24 hours",
+      "desc": "Hotel with restaurant and free amenities, short walk to Centrio Mall. (~10-15 km / 30-45 min drive from the venue.)",
+      "contact": "(088) 880-2908"
+    },
+    {
+      "name": "J.R. Borja General Hospital",
+      "category": "Health & First Aid",
+      "lat": 8.481785,
+      "lng": 124.627744,
+      "address": "Cagayan de Oro City (public hospital)",
+      "hours": "24 hours",
+      "desc": "City-run public general hospital. (~10-15 km from venue from the venue.)",
+      "contact": "(088) 880-1070"
+    },
+    {
+      "name": "Cagayan de Oro Medical Center",
+      "category": "Health & First Aid",
+      "lat": 8.485735,
+      "lng": 124.647191,
+      "address": "Cagayan de Oro City",
+      "hours": "24 hours",
+      "desc": "Private Level II hospital, 112-bed capacity. (~10-15 km from venue from the venue.)",
+      "contact": "—"
+    },
+    {
+      "name": "Indahag Urban Health Center",
+      "category": "Health & First Aid",
+      "lat": 8.424114,
+      "lng": 124.667799,
+      "address": "Barangay Indahag, Cagayan de Oro City",
+      "hours": "Business hours, Mon-Fri (typical for barangay health centers)",
+      "desc": "Local government barangay health center serving Indahag, the venue's own barangay. (Closest barangay clinic to venue from the venue.)",
+      "contact": "—"
+    },
+    {
+      "name": "Cugman Urban Health Center",
+      "category": "Health & First Aid",
+      "lat": 8.469919,
+      "lng": 124.704182,
+      "address": "Barangay Cugman, Cagayan de Oro City",
+      "hours": "Business hours, Mon-Fri (typical)",
+      "desc": "Barangay health center in Cugman, on the way toward Indahag/venue. (Along the route from downtown to venue from the venue.)",
+      "contact": "0997 244 9865"
+    },
+    {
+      "name": "Laguindingan Airport",
+      "category": "Transportation",
+      "lat": 8.608847,
+      "lng": 124.458642,
+      "address": "Laguindingan, Misamis Oriental",
+      "hours": "24 hours",
+      "desc": "Nearest airport serving Cagayan de Oro; primary arrival point for delegates flying in. (~45 km / 1 to 1.5 hr drive from venue from the venue.)",
+      "contact": "(088) 555-1881"
+    },
+    {
+      "name": "Agora Bus & Jeepney Terminal",
+      "category": "Transportation",
+      "lat": 8.488849,
+      "lng": 124.657728,
+      "address": "Lapasan, Cagayan de Oro City",
+      "hours": "Early morning to evening (typical)",
+      "desc": "Main city terminal. Note: no direct jeepney or bus route currently serves the venue itself — plan for taxi or ride-hailing for the final leg. (~10-15 km from venue from the venue.)",
+      "contact": "—"
+    },
+    {
+      "name": "Taxi / Ride-hailing pickup, downtown CDO",
+      "category": "Transportation",
+      "lat": "—",
+      "lng": "—",
+      "address": "Various points, downtown Cagayan de Oro",
+      "hours": "24 hours (availability varies)",
+      "desc": "Public transport does not reach the elevated venue directly; taxis and ride-hailing apps are the practical option for the final approach. (Starting point for ~30-45 min ride to venue from the venue.)",
+      "contact": "—"
+    },
+    {
+      "name": "Saint Francis Doctors' Hospital and Medical Center Uptown",
+      "category": "Health & First Aid",
+      "lat": 8.445275,
+      "lng": 124.621497,
+      "address": "Upper Canitoan, Masterson Ave, Upper Canitoan, Cagayan De Oro City, 9000 Misamis Oriental",
+      "hours": "24 hours except Sunday",
+      "desc": "Private Hospital (5.9 km from venue (10 min. drive via S diversion rd.) from the venue.)",
+      "contact": "0917 183 7001"
+    },
+    {
+      "name": "SM Uptown",
+      "category": "Mall",
+      "lat": 8.456104,
+      "lng": 124.62339,
+      "address": "Uptown, Pueblo de Oro Township, Fr. Masterson Avenue, Cor Gran Via, Carmen, Cagayan De Oro City, 9000 Misamis Oriental",
+      "hours": "Mon-Fri 11am-9pm, Sat-Sun 10am-9pm",
+      "desc": "SM City Cagayan de Oro Uptown is the first SM Supermall in Northern Mindanao, located in Pueblo de Oro Township, Uptown Carmen. It operates daily from 10:00 AM to 9:00 PM and features a wide range of retail, dining, entertainment, and service establishments across its 87,000+ sqm floor area.",
+      "contact": "—"
+    },
+    {
+      "name": "Our Story Boutique Hotel",
+      "category": "Accommodation",
+      "lat": 8.440403,
+      "lng": 124.644156,
+      "address": "Taguanao Road Upper, Indahag, Cagayan De Oro City, 9000 Misamis Oriental",
+      "hours": "24 hours",
+      "desc": "Our Story Boutique Hotel in Cagayan de Oro offers a cozy, boutique-style stay with modern amenities, scenic views, and convenient access to the city. Guests enjoy free Wi-Fi, complimentary breakfast, and a mix of deluxe and superior rooms, some with balconies overlooking the surrounding landscape.",
+      "contact": "0917 170 6803"
+    },
+    {
+      "name": "Gaisano City Uptown",
+      "category": "Mall",
+      "lat": 8.43148,
+      "lng": 124.616994,
+      "address": "CJJ8+FQX, Cagayan De Oro City, Misamis Oriental",
+      "hours": "9am-8pm",
+      "desc": "Gaisano City Uptown is a popular shopping mall in Cagayan de Oro, Northern Mindanao, known for its convenience, accessibility, and variety of retail and dining options.",
+      "contact": "0997 861 4976"
+    }
   ]
 }
